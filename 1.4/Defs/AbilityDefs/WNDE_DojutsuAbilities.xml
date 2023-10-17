@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!--Sharingan-->
+	<TaranMagicFramework.AbilityDef ParentName="WN_ClanSharinganAbilityBase">
+		<defName>WNDE_Ability_BaseSharingan</defName>
+		<label>Activate Sharingan</label>
+		<description>The eyes of an Uchiha clan member grants the user increased reflexes and perception.</description>
+		<uiPosition>(0.5, 0.25)</uiPosition>
+		<uiSkillIcon>UI/Icons/Sharingan/Sharingan</uiSkillIcon>
+		<abilityClass>WNDE.Dojutsu.Sharingan.WNDE_Ability_BaseSharingan</abilityClass>
+		<abilityTiers>
+			<li>WNDE_AbilityTier_BaseSharingan_Tier1</li>
+			<li>WNDE_AbilityTier_BaseSharingan_Tier2</li>
+			<li>WNDE_AbilityTier_BaseSharingan_Tier3</li>
+		</abilityTiers>
+	</TaranMagicFramework.AbilityDef>
+	
+	<TaranMagicFramework.AbilityTierDef ParentName="WN_AbilityTierBase" Name="WNDE_Ability_BaseSharingan_Base" Abstract="True">
+		<soundOnCast>WN_SharinganTomoe</soundOnCast>
+		<castDurationTicks>0</castDurationTicks>
+		<autoGain>false</autoGain>
+	</TaranMagicFramework.AbilityTierDef>
+
+	<TaranMagicFramework.AbilityTierDef ParentName="WNDE_Ability_BaseSharingan_Base">
+		<defName>WNDE_AbilityTier_BaseSharingan_Tier1</defName>
+		<label>Activate Sharingan</label>
+		<overlayProps>
+			<overlay>WN_TomoeI</overlay>
+		</overlayProps>
+	</TaranMagicFramework.AbilityTierDef>
+
+	<TaranMagicFramework.AbilityTierDef ParentName="WNDE_Ability_BaseSharingan_Base">
+		<defName>WNDE_AbilityTier_BaseSharingan_Tier2</defName>
+		<label>Activate Sharingan</label>
+		<overlayProps>
+			<overlay>WN_TomoeII</overlay>
+		</overlayProps>
+	</TaranMagicFramework.AbilityTierDef>
+	
+	<TaranMagicFramework.AbilityTierDef ParentName="WNDE_Ability_BaseSharingan_Base">
+		<defName>WNDE_AbilityTier_BaseSharingan_Tier3</defName>
+		<label>Activate Sharingan</label>
+		<overlayProps>
+			<overlay>WN_TomoeIII</overlay>
+		</overlayProps>
+		<aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetSelf_ActivateAlways</aiAbilityWorker>
+	</TaranMagicFramework.AbilityTierDef>
+	
+	<!--Byakugan-->
+	<TaranMagicFramework.AbilityDef ParentName="WN_ClanByakuganAbilityBase">
+		<defName>WNDE_Ability_Byakugan</defName>
+		<label>Byakugan</label>
+		<description>The signature ability of members of the Hyūga clan.</description>
+		<uiPosition>(0.5, 0.25)</uiPosition>
+		<uiSkillIcon>UI/Icons/Genes/Byakugan</uiSkillIcon>
+		<abilityClass>WNDE.Dojutsu.Byakugan.WNDE_Ability_Byakugan</abilityClass>
+		<letterTitleKeyGained>WN.PawnGainedByakugan</letterTitleKeyGained>
+		<letterDescKeysGained>WN.PawnGainedByakuganDesc</letterDescKeysGained>
+		<abilityTiers>
+			<li>WNDE_AbilityTier_Byakugan</li>
+		</abilityTiers>
+	</TaranMagicFramework.AbilityDef>
+
+	<TaranMagicFramework.AbilityTierDef ParentName="WN_AbilityTierBase" Name="WN_Byakugan_Base">
+		<defName>WNDE_AbilityTier_Byakugan</defName>
+		<label>Byakugan</label>
+		<castDurationTicks>0</castDurationTicks>
+		<soundOnCast>WN_Byakugan</soundOnCast>
+		<autoGain>false</autoGain>
+		<aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetSelf_ActivateAlways</aiAbilityWorker>
+	</TaranMagicFramework.AbilityTierDef>
+	
+</Defs>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!--Generic/Unknown dojutsu-->
+	<WNDE.Dojutsu.WNDE_DojutsuDef Name="WNDE_DojutsuBase">
+		<defName>WNDE_Dojutsu_Unknown</defName>
+		<label>Unknown Dojutsu</label>
+		<description>An eye from the wielder of an unknown dojutsu.</description>
+		<dojutsuHediffDef>WNDE_Hediff_Dojutsu</dojutsuHediffDef> <!--Hediff associated with the dojutsu-->
+		<dojutsuThingDef>WNDE_Thing_DojutsuEye</dojutsuThingDef> <!--Thing/Item associated with the dojutsu-->
+		<dojutsuGeneDef>WNDE_Gene_Dojutsu</dojutsuGeneDef> <!--Gene associated with the dojutsu-->
+		<!-- <dojutsuAbilityDef> is the "activating" ability associated with the dojutsu-->
+		
+		<!-- <activeHediffDef> is the hediff that will be applied when the dojutsu is active-->
+		
+		<!--The "stage" fields refer to the items unlocked or used if the hediff is at that hediff stage (index, so starts at 0)-->
+		
+		<dojutsuGraphic> <!--Eye graphics pawn will use by default-->
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Dojutsu/Dojutsu_Unknown</texPath>
+		</dojutsuGraphic>
+		<dojutsuGraphicEast>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Dojutsu/Dojutsu_Unknown_east</texPath>
+		</dojutsuGraphicEast>
+		<drawnByDefault>true</drawnByDefault> <!--Doesn't require activation to be seen in pawn's eyes, e.g. Byakugan-->
+	</WNDE.Dojutsu.WNDE_DojutsuDef>
+	
+	<!--Sharingan-->
+	<WNDE.Dojutsu.WNDE_DojutsuDef ParentName="WNDE_DojutsuBase">
+		<defName>WNDE_Dojutsu_Sharingan</defName>
+		<label>Sharingan</label>
+		<description>The eyes of an Uchiha clan member grants the user increased reflexes and perception.</description>
+		
+		<dojutsuHediffDef>WNDE_Hediff_Sharingan</dojutsuHediffDef>
+		<dojutsuThingDef>WNDE_Thing_DojutsuSharingan</dojutsuThingDef>
+		<dojutsuGeneDef>WN_Sharingan</dojutsuGeneDef>
+		<dojutsuAbilityDef>WNDE_Ability_BaseSharingan</dojutsuAbilityDef>
+		
+		<activeHediffDef>WNDE_Hediff_ActiveSharingan</activeHediffDef>
+		
+		<stageAbilityTrees>
+			<li><key>0</key><value><li>WN_ClanSharingan</li></value></li>
+			<li><key>1</key><value><li>WN_ClanSharingan</li></value></li>
+			<li><key>2</key><value><li>WN_ClanSharingan</li></value></li>
+		</stageAbilityTrees>
+	
+		
+		<stageDrainRates>
+			<li><key>0</key><value>0.0166</value></li>
+			<li><key>1</key><value>0.0125</value></li>
+			<li><key>2</key><value>0.0033</value></li>
+		</stageDrainRates>
+		
+		<stageXPGain>
+			<li>
+				<key>0</key>
+				<value>
+					<li>
+						<abilityClass>WN_Ninjutsu</abilityClass>
+						<xpGain>5</xpGain>
+						<ticksInterval>5000</ticksInterval>
+					</li>
+				</value>
+			</li>
+			<li>
+				<key>1</key>
+				<value>
+					<li>
+						<abilityClass>WN_Ninjutsu</abilityClass>
+						<xpGain>7.5</xpGain>
+						<ticksInterval>5000</ticksInterval>
+					</li>
+				</value>
+			</li>
+			<li>
+				<key>2</key>
+				<value>
+					<li>
+						<abilityClass>WN_Ninjutsu</abilityClass>
+						<xpGain>10</xpGain>
+						<ticksInterval>5000</ticksInterval>
+					</li>
+				</value>
+			</li>
+		</stageXPGain>
+		
+		<dojutsuGraphic>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Dojutsu/Sharingan/Dojutsu_Sharingan</texPath>
+		</dojutsuGraphic>
+		<dojutsuGraphicEast>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Dojutsu/Sharingan/Dojutsu_Sharingan_east</texPath>
+		</dojutsuGraphicEast>
+		<drawnByDefault>false</drawnByDefault>
+	</WNDE.Dojutsu.WNDE_DojutsuDef>
+	
+	<!--Byakugan-->
+	<WNDE.Dojutsu.WNDE_DojutsuDef ParentName="WNDE_DojutsuBase">
+		<defName>WNDE_Dojutsu_Byakugan</defName>
+		<label>Byakugan</label>
+		<description>Byakugan description.</description>
+		
+		<dojutsuHediffDef>WNDE_Hediff_Byakugan</dojutsuHediffDef>
+		<dojutsuThingDef>WNDE_Thing_DojutsuByakugan</dojutsuThingDef>
+		<dojutsuGeneDef>WN_Byakugan</dojutsuGeneDef>
+		<dojutsuAbilityDef>WNDE_Ability_Byakugan</dojutsuAbilityDef>
+		
+		<activeHediffDef>WNDE_Hediff_ActiveByakugan</activeHediffDef>
+		
+		<stageAbilityTrees>
+			<li>
+				<key>0</key>
+				<value>
+					<li>WN_ClanByakugan</li>
+				</value>
+			</li>
+		</stageAbilityTrees>
+		
+		<stageAbilities>
+			<li>
+				<key>0</key>
+				<value>
+					<li><key>WNDE_Ability_Byakugan</key><value>0</value></li>
+				</value>
+			</li>
+		</stageAbilities>
+		
+		<stageDrainRates>
+			<li><key>0</key><value>0.0033</value></li>
+		</stageDrainRates>
+		
+		<dojutsuGraphic>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Dojutsu/Byakugan/Dojutsu_Byakugan</texPath>
+		</dojutsuGraphic>
+		<dojutsuGraphicEast>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Dojutsu/Byakugan/Dojutsu_Byakugan_east</texPath>
+		</dojutsuGraphicEast>
+	</WNDE.Dojutsu.WNDE_DojutsuDef>
+
+</Defs>

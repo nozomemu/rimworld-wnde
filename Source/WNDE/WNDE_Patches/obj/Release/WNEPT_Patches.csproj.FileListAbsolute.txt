@@ -1,0 +1,6 @@
+D:\Games\RimWorld Biotech\Mods\World of Naruto - Ena's Personal Tweaks\Patches\FacialAnimation\Assemblies\WNDE_Patches.dll
+D:\Games\RimWorld Biotech\Mods\World of Naruto - Ena's Personal Tweaks\Patches\FacialAnimation\Assemblies\WNDE_Patches.pdb
+D:\Games\RimWorld Biotech\Mods\World of Naruto - Ena's Personal Tweaks\Source\WNDE\WNDE_Patches\obj\Release\WNDE_Patches.csproj.AssemblyReference.cache
+D:\Games\RimWorld Biotech\Mods\World of Naruto - Ena's Personal Tweaks\Source\WNDE\WNDE_Patches\obj\Release\WNDE_Patches.csproj.CoreCompileInputs.cache
+D:\Games\RimWorld Biotech\Mods\World of Naruto - Ena's Personal Tweaks\Source\WNDE\WNDE_Patches\obj\Release\WNDE_Patches.dll
+D:\Games\RimWorld Biotech\Mods\World of Naruto - Ena's Personal Tweaks\Source\WNDE\WNDE_Patches\obj\Release\WNDE_Patches.pdb

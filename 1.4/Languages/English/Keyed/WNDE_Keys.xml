@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	
+	<WNDE_Possessive>'s </WNDE_Possessive>
+	<WNDE_DojutsuStage>Stage</WNDE_DojutsuStage>
+	<WNDE_DojutsuStatus>Status</WNDE_DojutsuStatus>
+	<WNDE_DojutsuStatusActive>Active</WNDE_DojutsuStatusActive>
+	<WNDE_DojutsuStatusInactive>Inactive</WNDE_DojutsuStatusInactive>
+	<WNDE_OriginalOwner>Original owner</WNDE_OriginalOwner>
+	
+	<WNDE_ActiveEffects>Active Effects</WNDE_ActiveEffects>
+	<WNDE_DrainRate>Chakra draining</WNDE_DrainRate>
+	
+	<WNDE_SharinganAwakened>Awakened Sharingan</WNDE_SharinganAwakened>
+	<WNDE_SharinganAwakened_Desc>{PAWN_nameDef} has awakened {PAWN_possessive} Sharingan for the first time!</WNDE_SharinganAwakened_Desc>
+	<WNDE_SharinganTomoeGained>Sharingan: Tomoe gained</WNDE_SharinganTomoeGained>
+	<WNDE_SharinganTomoeGained_Desc>{PAWN_nameDef} has gained a tomoe!\n\n{PAWN_nameDef}'s Sharingan now has {TOMOE} tomoe.</WNDE_SharinganTomoeGained_Desc>
+	
+	<WNDE_SharinganMustBeActive>Sharingan must be active.</WNDE_SharinganMustBeActive>
+	
+	<WNDE_ByakuganMustBeImplanted>Byakugan must be implanted.</WNDE_ByakuganMustBeImplanted>
+	<WNDE_ByakuganMustBeActive>Byakugan must be active.</WNDE_ByakuganMustBeActive>
+	
+
+	<!--
+	<WN.Ninja>Ninja</WN.Ninja>
+	<WN.TomoeLearned>Sharingan tomoe learned</WN.TomoeLearned>
+	<WN.TomoeLearnedDesc>Due to {PAWN_nameDef} emotional state {PAWN_pronoun} has awakened {PAWN_possessive} sharingan!</WN.TomoeLearnedDesc>
+	<WN.SharinganEyeMustBeImplanted>Sharingan eye must be implanted</WN.SharinganEyeMustBeImplanted>
+	<WN.RequiresActiveSharinganTomoe>Requires active sharingan tomoe</WN.RequiresActiveSharinganTomoe>
+	
+	<WN.FireTreeUnlockedPaper>The paper starts to burn</WN.FireTreeUnlockedPaper>
+	<WN.WaterTreeUnlockedPaper>The paper becomes damp</WN.WaterTreeUnlockedPaper>
+	<WN.WindTreeUnlockedPaper>The paper is cut in half</WN.WindTreeUnlockedPaper>
+	<WN.LightningTreeUnlockedPaper>The paper wrinkles</WN.LightningTreeUnlockedPaper>
+	<WN.EarthTreeUnlockedPaper>The paper is turned into dirt</WN.EarthTreeUnlockedPaper>
+	<WN.PaperReadFailed>The paper did not react</WN.PaperReadFailed>
+	<WN.CannotReadFailed>Cannot read chakra paper: previous attempt failed</WN.CannotReadFailed>
+	<WN.CannotReadAllUnlocked>Cannot read chakra paper: unlocked all trees</WN.CannotReadAllUnlocked>
+	<WN.ReadChakraPaper>Read chakra paper</WN.ReadChakraPaper>
+	<WN.WaterTreeBoost>Ninjutsu Water (rain): -20%</WN.WaterTreeBoost>
+	<WN.FireTreeBoost>Ninjutsu Fire (fire nearby): +20%</WN.FireTreeBoost>
+	<WN.WindTreeBoost>Ninjutsu Wind (clear weather): -10%</WN.WindTreeBoost>
+	<WN.LightningTreeBoost>Ninjutsu Lightning (lightning storm): -25%</WN.LightningTreeBoost>
+	<WN.PawnGainedByakugan>Byakugan</WN.PawnGainedByakugan>
+	<WN.PawnGainedByakuganDesc>{PAWN_nameDef} has awakened {PAWN_possessive} Byakugan!</WN.PawnGainedByakuganDesc>
+	<WN.ResistedGenjutsu>{PAWN_nameDef} Resisted Genjutsu</WN.ResistedGenjutsu>
+	<WN.KaiUse>{PAWN_nameDef} has broken out of genjutsu</WN.KaiUse>
+	<WN.CannotCastOnChakraDisturbedNetwork>{PAWN_nameDef} cannot be put under genjutsu right now</WN.CannotCastOnChakraDisturbedNetwork>
+	<WN.ReadScroll>Read scroll</WN.ReadScroll>
+	<WN.CannotReadScrollChakraNotUnlocked>Cannot read: Chakra is not unlocked</WN.CannotReadScrollChakraNotUnlocked>
+	<WN.CannotReadScrollAlreadyLearned>Cannot read: already learned this ability</WN.CannotReadScrollAlreadyLearned>
+	<WN.CannotReadScrollRequirementNotSatisfied>Cannot read: learning requirements not satisfied</WN.CannotReadScrollRequirementNotSatisfied>
+	<WN.CannotReadScrollRequirementMinLevelNotSatisfied>Cannot read: need {0} or higher {1} level</WN.CannotReadScrollRequirementMinLevelNotSatisfied>
+	<WN.MustUnlock>Must unlock {0}</WN.MustUnlock>
+	<WN.LetterFinishedInstruction>{ORGANIZER_labelShort} has finished {ORGANIZER_possessive} instruction.</WN.LetterFinishedInstruction>
+	<WN.LetterInstructionInterrupted>Because the instruction was interrupted after only {0} completed, it wasn't as effective.</WN.LetterInstructionInterrupted>
+	<WN_TerribleNinjutsuInstruction>terrible todo</WN_TerribleNinjutsuInstruction>
+	<WN_BoringNinjutsuInstruction>boring todo</WN_BoringNinjutsuInstruction>
+	<WN_FunNinjutsuInstruction>fun todo</WN_FunNinjutsuInstruction>
+	<WN_UnforgettableNinjutsuInstruction>unforgettable todo</WN_UnforgettableNinjutsuInstruction>
+	<WN_TerribleGenjutsuInstruction>terrible todo</WN_TerribleGenjutsuInstruction>
+	<WN_BoringGenjutsuInstruction>boring todo</WN_BoringGenjutsuInstruction>
+	<WN_FunGenjutsuInstruction>fun todo</WN_FunGenjutsuInstruction>
+	<WN_UnforgettableGenjutsuInstruction>unforgettable todo</WN_UnforgettableGenjutsuInstruction>
+
+	<WN.FireTreeBoostTooltip>When fires are lit in your area. Fire ninjutsu are boosted by 20%. Current ninjutsu damage multiplier: {0}.</WN.FireTreeBoostTooltip>
+	<WN.WaterTreeBoostTooltip>When raining water jutsu will cost less to perform by 20%. Current chakra usage multiplier: {0}.</WN.WaterTreeBoostTooltip>
+	<WN.WindTreeBoostTooltip>If weather is clear cast time is lowered by 10%. Current cast time multiplier: {0}.</WN.WindTreeBoostTooltip>
+	<WN.LightningTreeBoostTooltip>When a flashstorm is active jutsu cooldown is heavily reduced by 25%. Current justu cooldown multiplier: {0}.</WN.LightningTreeBoostTooltip>
+	<WN.EarthTreeBoostTooltip>If chunks are nearby cost of earth jutsu are reduced by 20%. Current ninjutsu resistance: {0}</WN.EarthTreeBoostTooltip>
+	<WN.NinjutsuBoostTooltip>Max Chakra increase: {0}</WN.NinjutsuBoostTooltip>
+	<WN.GenjutsuBoostTooltip>Genjutsu natural resistance: {0}</WN.GenjutsuBoostTooltip>
+	<WN.TaijutsuMeleeCooldown>Melee cooldown multiplier: {0}</WN.TaijutsuMeleeCooldown>
+	<WN.TaijutsuMeleeDamage>Melee damage: {0}</WN.TaijutsuMeleeDamage>
+	<WN.TaijutsuMoveSpeed>Movement speed: {0}</WN.TaijutsuMoveSpeed>
+	<WN.RoyalFavorTip>You can choose one of your {0} to receive {1} {2} from {3_name}.\n\nBy receiving {2}, you gain titles.</WN.RoyalFavorTip>
+	<WN.BestowingCeremonyDescription>[faction_name] is ready to grant [pawn_definite] the title of [newTitle] in a bestowing ceremony.\n\nThe bestower will arrive by shuttle and perform the ceremony.\n\nThere's a chance of gaining extra honor, depending on how many viewers attend the ceremony. Additionally, every viewer gains a mood bonus.\n\nIf you miss or fail this ceremony, there will be another opportunity later. If the bestower or guards are harmed for any reason, there will be diplomatic consequences.</WN.BestowingCeremonyDescription>
+	<WN.SmallUIMode>Small UI mode</WN.SmallUIMode>
+	<WN.EnabledAbilities>Enabled abilities:</WN.EnabledAbilities>
+	<WN.MinimizeAbilityButtons>Minimize ability buttons</WN.MinimizeAbilityButtons>
+	<WN.HideCombatAbilityButtonsWhenNotDrafted>Hide combat ability buttons when not drafted</WN.HideCombatAbilityButtonsWhenNotDrafted>
+	<WN.AIMode>NPC/Enemies AI mode: </WN.AIMode>
+	<WN.Normal>Normal</WN.Normal>
+	<WN.Hard>Hard</WN.Hard>
+	<WN.GameStartDialog>Four shinobi of various backgrounds have decided to come together to start their own village to foster future shinobi.</WN.GameStartDialog>
+	-->
+</LanguageData>

@@ -1,0 +1,75 @@
+<Patch>
+	
+	<!--==========Remove original abilities==========-->
+	<Operation Class="PatchOperationAdd">
+        <xpath>Defs/TaranMagicFramework.AbilityTierDef[defName="WN_SharinganTomoe_Tier1"]</xpath>
+		<value>
+			<autoGain>false</autoGain>
+		</value>
+    </Operation>
+	<Operation Class="PatchOperationAdd">
+        <xpath>Defs/TaranMagicFramework.AbilityTierDef[defName="WN_SharinganTomoe_Tier2"]</xpath>
+		<value>
+			<autoGain>false</autoGain>
+		</value>
+    </Operation>
+	<Operation Class="PatchOperationAdd">
+        <xpath>Defs/TaranMagicFramework.AbilityTierDef[defName="WN_SharinganTomoe_Tier3"]</xpath>
+		<value>
+			<autoGain>false</autoGain>
+		</value>
+    </Operation>
+	
+	<Operation Class="PatchOperationAdd">
+        <xpath>Defs/TaranMagicFramework.AbilityTierDef[defName="WN_Byakugan"]</xpath>
+		<value>
+			<autoGain>false</autoGain>
+		</value>
+    </Operation>
+	
+	<!--==========Reintegrates dependent abilities==========-->
+	<!--Sharingan-->
+	<Operation Class="PatchOperationReplace">
+        <xpath>Defs/TaranMagicFramework.AbilityDef[defName="WN_SharinganGenjutsu"]/abilityClass</xpath>
+		<value><abilityClass>WNDE.Dojutsu.Sharingan.WNDE_Ability_SharinganGenjutsu</abilityClass></value>
+    </Operation>
+	<Operation Class="PatchOperationRemove">
+        <xpath>Defs/TaranMagicFramework.AbilityTierDef[defName="WN_SharinganGenjutsu"]/requiresActiveAbilities</xpath>
+    </Operation>
+	
+	<!--Byakugan-->
+	<Operation Class="PatchOperationReplace">
+        <xpath>Defs/TaranMagicFramework.AbilityDef[defName="WN_GentleFist"]/abilityClass</xpath>
+		<value><abilityClass>WNDE.Dojutsu.Byakugan.WNDE_Ability_GentleFist</abilityClass></value>
+    </Operation>
+	<Operation Class="PatchOperationRemove">
+        <xpath>Defs/TaranMagicFramework.AbilityTierDef[defName="WN_GentleFist"]/requiresActiveAbilities</xpath>
+    </Operation>
+	
+	<Operation Class="PatchOperationReplace">
+        <xpath>Defs/TaranMagicFramework.AbilityDef[defName="WN_SixtyFourPalms"]/abilityClass</xpath>
+		<value><abilityClass>WNDE.Dojutsu.Byakugan.WNDE_Ability_SixtyFourPalms</abilityClass></value>
+    </Operation>
+	<Operation Class="PatchOperationRemove">
+        <xpath>Defs/TaranMagicFramework.AbilityTierDef[defName="WN_SixtyFourPalms"]/requiresActiveAbilities</xpath>
+    </Operation>
+	
+	<!--==========Genes==========-->
+	<!--Does nothing, the GeneDefs are overwritten directly in WNDE_GeneDefs.xml instead-->
+	<!--
+	<Operation Class="PatchOperationAdd">
+        <xpath>Defs/GeneDef[defName="WN_Byakugan"]</xpath>
+		<value>
+			<geneClass>WNDE.Dojutsu.Byakugan.WNDE_Gene_Byakugan</geneClass>
+		</value>
+    </Operation>
+	
+	<Operation Class="PatchOperationRemove">
+        <xpath>Defs/GeneDef[defName="WN_Sharingan"]/exclusionTags</xpath>
+    </Operation>
+	<Operation Class="PatchOperationRemove">
+        <xpath>Defs/GeneDef[defName="WN_Byakugan"]/exclusionTags</xpath>
+    </Operation>
+	-->
+	
+</Patch>

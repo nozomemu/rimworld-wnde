@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	
+	<!--Template defs and default/fallback defs for dojutsu-->
+	<HediffDef Name="WNDE_Hediff_DojutsuBase" Abstract="True">
+		<hediffClass>WNDE.Dojutsu.WNDE_Hediff_Dojutsu</hediffClass>
+		<defaultLabelColor>(1.0, 0.6, 0.0)</defaultLabelColor>
+		<isBad>false</isBad>
+		<priceImpact>true</priceImpact>
+		<allowMothballIfLowPriorityWorldPawn>true</allowMothballIfLowPriorityWorldPawn>
+		<eyeGraphicScale>0.19</eyeGraphicScale>
+	</HediffDef>
+
+	<!--Generic/Unknown dojutsu main hediff-->
+	<HediffDef ParentName="WNDE_Hediff_DojutsuBase" Name="WNDE_Hediff_Dojutsu">
+		<defName>WNDE_Hediff_Dojutsu</defName>
+		<label>Unknown Dojutsu</label>
+		<labelNoun>An unknown dojutsu.</labelNoun>
+		<description>The dojutsu of an unknown clan.</description>
+		
+		<descriptionHyperlinks>
+			<ThingDef>WNDE_Thing_DojutsuEye</ThingDef>
+		</descriptionHyperlinks>
+		
+		<spawnThingOnRemoved>WNDE_Thing_DojutsuEye</spawnThingOnRemoved>
+		<woundAnchorRange>0</woundAnchorRange>
+		<displayWound>true</displayWound>
+		<addedPartProps>
+			<solid>true</solid>
+			<partEfficiency>1</partEfficiency>
+		</addedPartProps>
+	</HediffDef>
+	
+	<!--Generic/Unknown dojutsu thing-->
+	<ThingCategoryDef>
+        <defName>WNDE_BodyPartsDojutsu</defName>
+        <label>dojutsu</label>
+        <parent>BodyParts</parent>
+    </ThingCategoryDef>
+	
+	<ThingDef Name="WNDE_BodyPartDojutsuBase" ParentName="BodyPartBase" Abstract="True">
+		<thingCategories>
+			<li>WNDE_BodyPartsDojutsu</li>
+		</thingCategories>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="WNDE_BodyPartDojutsuBase" Name="WNDE_Thing_DojutsuEye">
+		<defName>WNDE_Thing_DojutsuEye</defName>
+		<label>Unknown Dojutsu</label>
+		<description>The extracted eye of a dojutsu user.</description>
+		
+		<descriptionHyperlinks>
+			<RecipeDef>WNDE_Recipe_ImplantDojutsu</RecipeDef>
+		</descriptionHyperlinks>
+		
+		<drawGUIOverlay>true</drawGUIOverlay>
+		<thingClass>WNDE.Dojutsu.WNDE_Thing_Dojutsu</thingClass>
+		<graphicData>
+			<texPath>Things/Item/Implant/Implant_Sharingan</texPath>
+		</graphicData>
+		<statBases>
+			<Mass>0.3</Mass>
+			<MarketValue>5000</MarketValue>
+		</statBases>
+	</ThingDef>
+	
+	<!--Generic/Unknown dojutsu implant recipe-->
+	<RecipeDef ParentName="SurgeryInstallImplantBase" Name="WNDE_Recipe_ImplantDojutsuBase" Abstract="True">
+		<workerClass>WNDE.Dojutsu.WNDE_Recipe_ImplantDojutsu</workerClass>
+		<appliedOnFixedBodyParts>
+			<li>Eye</li>
+		</appliedOnFixedBodyParts>
+	</RecipeDef>
+	
+	<RecipeDef ParentName="WNDE_Recipe_ImplantDojutsuBase">
+		<defName>WNDE_Recipe_ImplantDojutsu</defName>
+		<label>implant dojutsu</label>
+		<description>Implant an acquired dojutsu.</description>
+		
+		<descriptionHyperlinks>
+			<ThingDef>WNDE_Thing_DojutsuEye</ThingDef>
+			<HediffDef>WNDE_Hediff_Dojutsu</HediffDef>
+		</descriptionHyperlinks>
+		
+		<jobString>Implanting dojutsu.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WNDE_Thing_DojutsuEye</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>WNDE_Thing_DojutsuEye</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>WNDE_Hediff_Dojutsu</addsHediff>
+	</RecipeDef>
+	
+	<!--Generic/Unknown dojutsu extraction recipe-->
+	<RecipeDef ParentName="SurgeryRemoveImplantBase">
+		<defName>WNDE_Recipe_RemoveDojutsu</defName>
+		<label>remove dojutsu</label>
+		<description>Remove dojutsu.</description>
+		<descriptionHyperlinks>
+			<ThingDef>WNDE_Thing_DojutsuEye</ThingDef>
+			<HediffDef>WNDE_Hediff_Dojutsu</HediffDef>
+		</descriptionHyperlinks>
+		<workerClass>WNDE.Dojutsu.WNDE_Recipe_RemoveDojutsu</workerClass>
+		<jobString>Removing dojutsu.</jobString>
+		<removesHediff>WNDE_Hediff_Dojutsu</removesHediff>
+	</RecipeDef>
+
+</Defs>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!--Separated category just below main to tidy up genes-->
+	<GeneCategoryDef>
+		<defName>WNDE_GeneCategory_Dojutsu</defName>
+		<label>dōjutsu</label>
+		<displayPriorityInXenotype>465131</displayPriorityInXenotype>
+	</GeneCategoryDef>
+	
+	<!--Dojutsu base/template-->
+	<!--Dojutsu genes have also been separated from regular eye genes so they won't be exclusive with each other-->
+	<!--In vanilla (no pawn appearance overhauls), eye graphics will be handled by DojutsuDef and hediffs hence drawScale is set at 0 so the gene's graphics aren't visible-->
+	<!--This is so different eye graphics for different eyes/dojutsu implants (like Byakugan and Sharingan in different eyes) will be possible since vanilla hediffs like bionic and archotech eyes can do it-->
+	<!--However, the gene still needs graphicData for patching to work (refer to WNDE_DrawGeneEyes_Patch)-->
+	<!--For pawn appearance overhauls (particularly NL's Facial Animations), simply patch out the graphicData entries in the corresponding DojutsuDef and add the eye color patches to their respective hediffs-->
+	<GeneDef Name="WNDE_Gene_DojutsuBase" Abstract="True">
+		<displayCategory>WNDE_GeneCategory_Dojutsu</displayCategory>
+		<biostatCpx>0</biostatCpx>
+		<forcedTraits>
+			<li>
+				<def>WN_Chakra</def>
+			</li>
+		</forcedTraits>
+		<graphicData>
+			<color>(255, 255, 255)</color>
+			<drawScale>0</drawScale>
+			<visibleNorth>false</visibleNorth>
+			<drawOnEyes>true</drawOnEyes>
+			<layer>PostTattoo</layer>
+		</graphicData>
+	</GeneDef>
+	
+	<!--Generic/Unknown dojutsu (primarily used as a fallback should there be errors in the dojutsu)-->
+	<GeneDef ParentName="WNDE_Gene_DojutsuBase">
+		<defName>WNDE_Gene_Dojutsu</defName>
+		<label>Unknown Dōjutsu</label>
+		<description>A kekkei genkai from an unknown clan.</description>
+		<iconPath>UI/Icons/Genes/Sharingan</iconPath>
+		
+		<displayOrderInCategory>1</displayOrderInCategory>
+		<biostatCpx>5</biostatCpx>
+		<graphicData>
+			<graphicPath>Things/Pawn/Humanlike/HeadAttachments/RedEyes/Male/RedEyes_Male</graphicPath>
+			<graphicPathFemale>Things/Pawn/Humanlike/HeadAttachments/RedEyes/Female/RedEyes_Female</graphicPathFemale>
+		</graphicData>
+	</GeneDef>
+	
+	<!--Sharingan-->
+	<GeneDef ParentName="WNDE_Gene_DojutsuBase">
+		<defName>WN_Sharingan</defName>
+		<label>Sharingan</label>
+		<description>Kekkai genkai of the Uchiha clan.</description>
+		<iconPath>UI/Icons/Genes/Sharingan</iconPath>
+		
+		<geneClass>NarutoMod.Gene_Sharingan</geneClass>
+		<displayOrderInCategory>1</displayOrderInCategory>
+		<biostatCpx>5</biostatCpx>
+		<graphicData>
+			<graphicPath>Things/Pawn/Humanlike/HeadAttachments/RedEyes/Male/RedEyes_Male</graphicPath>
+			<graphicPathFemale>Things/Pawn/Humanlike/HeadAttachments/RedEyes/Female/RedEyes_Female</graphicPathFemale>
+		</graphicData>
+	</GeneDef>
+	
+	<!--Byakugan-->
+	<GeneDef ParentName="WNDE_Gene_DojutsuBase">
+		<defName>WN_Byakugan</defName>
+		<label>Byakugan</label>
+		<description>The Doujutsu of the Hyuuga clan.</description>
+
+		<geneClass>WNDE.Dojutsu.Byakugan.WNDE_Gene_Byakugan</geneClass>
+		<iconPath>UI/Icons/Genes/Byakugan</iconPath>
+		<displayOrderInCategory>1</displayOrderInCategory>
+		<biostatCpx>4</biostatCpx>
+		<graphicData>
+			<graphicPath>Misc/Byakugan_male_eye</graphicPath>
+			<graphicPathFemale>Misc/Byakugan_female_eye</graphicPathFemale>
+		</graphicData>
+	</GeneDef>
+
+</Defs>

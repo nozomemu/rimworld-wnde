@@ -1,0 +1,26 @@
+<Patch>
+	
+	<!--==========Remove graphics==========-->
+	<!--Generic/Unknown dojutsu-->
+	<Operation Class="PatchOperationRemove">
+        <xpath>Defs/WNDE.Dojutsu.WNDE_DojutsuDef[defName="WNDE_Dojutsu_Unknown"]/dojutsuGraphic</xpath>
+    </Operation>
+	<Operation Class="PatchOperationRemove">
+        <xpath>Defs/WNDE.Dojutsu.WNDE_DojutsuDef[defName="WNDE_Dojutsu_Unknown"]/dojutsuGraphicEast</xpath>
+    </Operation>
+	<!--Sharingan-->
+	<Operation Class="PatchOperationRemove">
+        <xpath>Defs/WNDE.Dojutsu.WNDE_DojutsuDef[defName="WNDE_Dojutsu_Sharingan"]/dojutsuGraphic</xpath>
+    </Operation>
+	<Operation Class="PatchOperationRemove">
+        <xpath>Defs/WNDE.Dojutsu.WNDE_DojutsuDef[defName="WNDE_Dojutsu_Sharingan"]/dojutsuGraphicEast</xpath>
+    </Operation>
+	<!--Byakugan-->
+	<Operation Class="PatchOperationRemove">
+        <xpath>Defs/WNDE.Dojutsu.WNDE_DojutsuDef[defName="WNDE_Dojutsu_Byakugan"]/dojutsuGraphic</xpath>
+    </Operation>
+	<Operation Class="PatchOperationRemove">
+        <xpath>Defs/WNDE.Dojutsu.WNDE_DojutsuDef[defName="WNDE_Dojutsu_Byakugan"]/dojutsuGraphicEast</xpath>
+    </Operation>
+	
+</Patch>

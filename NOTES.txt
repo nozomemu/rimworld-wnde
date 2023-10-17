@@ -1,0 +1,52 @@
+[====OLD IMPLEMENTATION====]
+In the base mod, dojutsu are implemented in the following order:
+1. Upon achieving specific conditions based on the dojutsu, the user unlocks the activating ability if they have the gene. These conditions are:
+- Sharingan: Reaching certain ninjutsu levels or experiencing a mental state
+- Byakugan: Present at birth (Gets added if they have/spawn with the Byakugan gene)
+2. When the associated ability is activated, a hediff for each eye is made and a separate hediff giving the actual stat boosts/bonuses is made in the Body. Chakra drain and XP gain is also handled by the ability. Ending the ability removes all 3 hediffs.
+3. The associated ability with the dojutsu is upgraded when applicable and under certain conditions. The new unlocked ability tier gives upgraded hediffs when activating. Currently the Sharingan is the only dojutsu that does this.
+4. Abilities must be activated so the corresponding hediffs show up for transplant purposes. Successful transplant grants the transplantee the associated ability and the hediff.
+
+[====CURRENT IMPLEMENTATION====]
+As of now, dojutsu are implemented in the following order:
+1. Upon achieving specific conditions based on the dojutsu, a hediff for that dojutsu is made in each non-missing natural eye. Currently implemented dojutsu are awakened through the following:
+- Generic/Unknown/"Template" dojutsu (only exists as a failsafe): Unimplemented
+- Sharingan: Similar to vanilla, i.e. reaching certain ninjutsu levels or experiencing a mental state and only if you have the gene
+- Byakugan: Present at birth (Gets added if they have/spawn with the Byakugan endogene)
+2. The generated hediff is assigned its own DojutsuDef. Inside this DojutsuDef, the dojutsu's corresponding HediffDef, ThingDef (transplant items), GeneDef, AbilityDef, ActiveHediff, abilities and ability trees unlocked per stage, chakra drained per stage by each eye when active, and eye graphics (for vanilla) are defined. This DojutsuDef serves as a template so only variables that need to be saved, e.g. Pawn who "owns" the eye and whether it is currently active, are kept by the IExposable (For reference, refer to WNDE_DojutsuDef and WNDE_DojutsuData)
+3. The pawn wielding the dojutsu unlocks the "activating ability" under certain conditions. The ability simply acts as a switch for its associated hediff. The hediff and ability upgrade independently but happen at the same time. Since abilities only serve to activate or deactivate the dojutsu, ability tiers are only for overlayProps/animations and AI. The abilities of currently implemented dojutsu are "learned" as follows:
+- Sharingan: Only upon awakening. Gets upgraded when certain ninjutsu levels are reached or when pawn experiences a mental state like in the base mod. Non-Uchiha/those without the endogene can't activate nor upgrade implanted Sharingan
+- Byakugan: Automatically unlocked as long as you have the eye (the eye/hediff itself gives you the Byakugan ability).
+4. Dojutsu can be surgically removed and transplanted at any time since the hediff is persistent/permanent. Dojutsu stage, e.g. how many tomoe a Sharingan has, and whether the dojutsu is active or inactive is saved. Unless the transplantee has the gene or conditions to activate/deactivate and upgrade the eye, the eye stays at the state it was transplanted in (active eyes continuously drain chakra and 1-2 tomoe Sharingan stay at 1-2 tomoe).
+
+[====IMPLEMENTATION OF MS AND RINNEGAN====]
+The current implementation works for most dojutsu since they either have one "stage" (most dojutsu) or at least a straightforward progression system with the same abilities given for every user (Base Sharingan's tomoe bonuses, Genjutsu: Sharingan, and Izanagi and Izanami should Senju DNA/cells eventually be introduced). Rinnegan and (especially) MS are special cases since:
+1. MS and Rinnegan are both "upgrades/evolutions" of the base Sharingan. This works fine with the current implementation of using hediff stages, but we know MS and Rinnegan wielders can switch between eyes if they are naturally awakened (Madara can switch between MS and Rinnegan but Nagato and Obito always have it on) so MS and Rinnegan at least need to be treated/activated separately in such cases.
+2. Abilities and jutsu are highly individualized/unique (Every Rinnegan we've seen has the 6 Paths' abilities plus a few unique jutsu depending on the user, e.g. Limbo, Amenotejikara. On the other hand MS's abilities are entirely unique) so a static "DojutsuDef" would not be suitable unless we want to define every single unique MS, EMS, and Rinnegan.
+
+For implementing the Rinnegan, the most sound method I am thinking would be: Upon attaining the requirements (Hagoromo genes or something), make a new hediff and DojutsuDef for Rinnegan then just copy other relevant data from the original Sharingan's DojutsuData into the new eye (hediff). The main contention here would be how should we implement the Rinnegan awakeners' unique jutsu. Since there are only a few of these, we can get away with making a DojutsuDef for each of them with their own abilities + the standard/base 6 Paths abilities and calling it a day. However, as stated, the real issue lies with MS and EMS.
+
+The original idea of this mod's implementation is that the main hediff represents the entire eye, so taking the eye (hediff) and transplanting it still retains that specific eye's abilities. MS and EMS works well with Sharingan since we can think of MS/EMS as a "subset" or "advanced form" of the Sharingan so no need to define a new hediff, we can simply save a list of "unique MS jutsu" in that eye that the user can use if they activate that Sharingan's MS/EMS "mode" or "stage". The problem with this implementation is that the Rinnegan is treated as an entirely different eye. The most straightforward yet flexible fix would be making MS/EMS an unlockable "SpecialDojutsuDef" for the Sharingan hediff, while also adding a new Rinnegan hediff in the same eye with its own "SpecialDojutsuDef" too to account for cases like Madara or Sasuke, and making it so both hediffs can't be activated (in that eye) at the same time. This "SpecialDojutsuDef" would just be a reference for which abilities would get saved into the "special jutsu in that specific eye" list variable (and probably which MS/EMS/Rinnegan graphics appear when casting). This can basically be done by genes, too.
+
+Basically, the entire evolution would go like this:
+[Base Sharingan]
+1. Awaken
+2. Unlock each tomoe
+3. Awaken MS (or if very specific conditions met, skip straight to Rinnegan then awaken MS later)
+
+[Mangekyou Sharingan]
+1. Upon traumatic event, assign a "SpecialDojutsuDef" or MS gene to the Sharingan. Note: The Def class or the gene class to be used should contain separate entries for "left" and "right" eyes.
+2. Save the "left and right" eye info (jutsu) of the corresponding eye into a List, Dictionary, or Collection in DojutsuData. The def or gene can also contain the icon/graphics used when casting the "Activate Mangekyou Sharingan" ability so instead of specifying separate abilities with different icons for each MS design, just make the ability class retrieve it from there.
+3. Mangekyou blindness (current implementation in Patreon works, if you'd like you can implement it to the main hediff like how "active hediffs" are implemented here so it shows in the tooltip of the main hediff instead)
+4. Awaken EMS
+
+[Eternal Mangekyou Sharingan]
+1. Swap MS with beloved dead(?) MS wielder.
+2. Since each eye has a List/Dictionary/Collection of unique MS abilities, we can just merge the two pairs of eyes' items/jutsu, then just add additional EMS jutsu when appropriate (I can only think of Perfect Susanoo). Replace the "SpecialDojutsuDef" or MS gene with a new one for the EMS (basically just contains the EMS graphics, or maybe additional EMS jutsu to add to the list)
+3. Enjoy being OP
+
+[Rinnegan]
+1. Upon acquiring Ashura and Indra's genes or however it will be implemented, make a new Rinnegan hediff with a Rinnegan DojutsuDef (containing all standard/common 6 Paths abilities) then assign a "SpecialDojutsuDef" or Rinnegan gene to handle all the unique stuff, basically similar process to MS.
+2. Let the world know pain
+
+Additional Note: Some special dojutsu such as Limbo can't be used by transplantees (in this case, Nagato and Obito). Whether this was because of transcription seals or simply because "they weren't his eyes," this might be where the OriginalOwner variable might also come in handy. 

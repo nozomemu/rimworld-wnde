@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!--========================================================================================================================-->
+	<!--
+		Listed below are the main entries required for the dojutsu: the main hediff, the active hediff (hidden by default), the
+		associated thing/item/extracted eye, and the corresponding operation for implanting that dojutsu
+		
+		If the dojutsu can be progressed, e.g. the Sharingan with its tomoe, indicate in the main hediff the corresponding
+		stages. Only the label and minimum severity is required, as all the stat offsets are handled by the active hediff
+		Note: minSeverity can be anything as the code synchronizes stages by index anyway
+		
+		Since we can't control stat offsets dynamically in code, the active hediff serves as the main provider of any stat
+		bonuses or maluses. They are made not visible by default since the main hediff handles the information (tooltips)
+		and so the pawn's health tab looks cleaner/tidier. The active hediff should remove itself if ever the main hediff is
+		removed, but if not there are debug tools in DevMode to rectify this anyway.
+																																-->
+	<!--========================================================================================================================-->
+
+	<!--==========Sharingan==========-->
+	<!--Main Hediff-->
+	<HediffDef ParentName="WNDE_Hediff_Dojutsu">
+		<defName>WNDE_Hediff_Sharingan</defName>
+		<label>Sharingan</label>
+		<labelNoun>A Sharingan.</labelNoun>
+		<description>Uchiha.</description>
+		<spawnThingOnRemoved>WNDE_Thing_DojutsuSharingan</spawnThingOnRemoved>
+		<stages>
+			<li>
+				<label>1 Tomoe</label>
+				<minSeverity>0.3</minSeverity>
+			</li>
+			<li>
+				<label>2 Tomoe</label>
+				<minSeverity>0.6</minSeverity>
+			</li>
+			<li>
+				<label>3 Tomoe</label>
+				<minSeverity>1.0</minSeverity>
+			</li>
+		</stages>
+	</HediffDef>
+	
+	<!--Sharingan: Active Hediff-->
+	<HediffDef>
+		<defName>WNDE_Hediff_ActiveSharingan</defName>
+		<label>Active Sharingan</label>
+		<description>You shouldn't be seeing this</description>
+		<stages>
+			<li>
+				<becomeVisible>false</becomeVisible>
+				<label>1 Tomoe</label>
+				<minSeverity>0.3</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>0.075</offset>
+					</li>
+					<li>
+						<capacity>Sight</capacity>
+						<offset>0.075</offset>
+					</li>
+				</capMods>
+				<statOffsets>
+					<MeleeDodgeChance>1</MeleeDodgeChance>
+					<WN_ChakraGenResistance>0.05</WN_ChakraGenResistance>
+				</statOffsets>
+			</li>
+			<li>
+				<becomeVisible>false</becomeVisible>
+				<label>2 Tomoe</label>
+				<minSeverity>0.6</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>0.10</offset>
+					</li>
+					<li>
+						<capacity>Sight</capacity>
+						<offset>0.10</offset>
+					</li>
+				</capMods>
+				<statOffsets>
+					<MeleeDodgeChance>1.5</MeleeDodgeChance>
+					<WN_ChakraGenResistance>0.075</WN_ChakraGenResistance>
+				</statOffsets>
+			</li>
+			<li>
+				<becomeVisible>false</becomeVisible>
+				<label>3 Tomoe</label>
+				<minSeverity>1.0</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>0.125</offset>
+					</li>
+					<li>
+						<capacity>Sight</capacity>
+						<offset>0.125</offset>
+					</li>
+				</capMods>
+				<statOffsets>
+					<MeleeDodgeChance>2.5</MeleeDodgeChance>
+					<WN_ChakraGenResistance>0.125</WN_ChakraGenResistance>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+	
+	<ThingDef ParentName="WNDE_Thing_DojutsuEye">
+		<defName>WNDE_Thing_DojutsuSharingan</defName>
+		<label>Sharingan</label>
+		<description>An extracted eye bearing the Sharingan of the Uchiha clan.</description>
+		
+		<descriptionHyperlinks inherit="False">
+			<RecipeDef>WNDE_Recipe_ImplantSharingan</RecipeDef>
+		</descriptionHyperlinks>
+		
+		<graphicData>
+			<texPath>Things/Item/Implant/Implant_Sharingan</texPath>
+		</graphicData>
+		<statBases>
+			<Mass>0.3</Mass>
+			<MarketValue>5000</MarketValue>
+		</statBases>
+	</ThingDef>
+	
+	<RecipeDef ParentName="WNDE_Recipe_ImplantDojutsuBase">
+		<defName>WNDE_Recipe_ImplantSharingan</defName>
+		<label>implant Sharingan</label>
+		<description>Implant an acquired Sharingan.</description>
+		
+		<descriptionHyperlinks>
+			<ThingDef>WNDE_Thing_DojutsuSharingan</ThingDef>
+			<HediffDef>WNDE_Hediff_Sharingan</HediffDef>
+		</descriptionHyperlinks>
+		
+		<jobString>Implanting Sharingan.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WNDE_Thing_DojutsuSharingan</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>WNDE_Thing_DojutsuSharingan</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>WNDE_Hediff_Sharingan</addsHediff>
+	</RecipeDef>
+	
+	<!--==========Sharingan==========-->
+	<!--Main Hediff-->
+	<HediffDef ParentName="WNDE_Hediff_Dojutsu">
+		<defName>WNDE_Hediff_Byakugan</defName>
+		<label>Byakugan</label>
+		<labelNoun>A Byakugan.</labelNoun>
+		<description>Hyūga.</description>
+		<spawnThingOnRemoved>WNDE_Thing_DojutsuByakugan</spawnThingOnRemoved>
+	</HediffDef>
+	
+	<!--Byakugan: Active Hediff-->
+	<HediffDef>
+		<defName>WNDE_Hediff_ActiveByakugan</defName>
+		<label>Active Byakugan</label>
+		<description>You shouldn't be seeing this</description>
+		<stages>
+			<li>
+				<becomeVisible>false</becomeVisible>
+				<capMods>
+					<li>
+						<capacity>Sight</capacity>
+						<offset>0.5</offset>
+					</li>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>0.075</offset>
+					</li>
+				</capMods>
+				<statFactors>
+					<AimingDelayFactor>0.15</AimingDelayFactor>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+	
+	<ThingDef ParentName="WNDE_Thing_DojutsuEye">
+		<defName>WNDE_Thing_DojutsuByakugan</defName>
+		<label>Byakugan</label>
+		<description>An extracted eye bearing the Byakugan of the Hyūga clan.</description>
+		
+		<descriptionHyperlinks inherit="False">
+			<RecipeDef>WNDE_Recipe_ImplantSharingan</RecipeDef>
+		</descriptionHyperlinks>
+		
+		<graphicData>
+			<texPath>Things/Item/Implant/Implant_Byakugan</texPath>
+		</graphicData>
+		<statBases>
+			<Mass>0.3</Mass>
+			<MarketValue>5000</MarketValue>
+		</statBases>
+	</ThingDef>
+	
+	<RecipeDef ParentName="WNDE_Recipe_ImplantDojutsuBase">
+		<defName>WNDE_Recipe_ImplantByakugan</defName>
+		<label>implant Byakugan</label>
+		<description>Implant an acquired Byakugan.</description>
+		
+		<descriptionHyperlinks>
+			<ThingDef>WNDE_Thing_DojutsuByakugan</ThingDef>
+			<HediffDef>WNDE_Hediff_Byakugan</HediffDef>
+		</descriptionHyperlinks>
+		
+		<jobString>Implanting Sharingan.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WNDE_Thing_DojutsuByakugan</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>WNDE_Thing_DojutsuByakugan</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>WNDE_Hediff_Byakugan</addsHediff>
+	</RecipeDef>
+
+</Defs>

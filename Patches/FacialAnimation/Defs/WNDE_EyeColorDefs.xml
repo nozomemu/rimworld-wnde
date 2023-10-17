@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+
+	<FacialAnimation.EyeballColorDef>
+		<defName>WNDE_Unknown_EyeColor</defName>
+		<hediffDef>WNDE_Hediff_Dojutsu</hediffDef>
+		<eyeballColor>RGB(0.5, 0.5, 0.5)</eyeballColor>
+	</FacialAnimation.EyeballColorDef>
+
+	<FacialAnimation.EyeballColorDef>
+		<defName>WNDE_Sharingan_EyeColor</defName>
+		<hediffDef>WNDE_Hediff_Sharingan</hediffDef>
+		<eyeballColor>RGB(1.0, 0.0, 0.0)</eyeballColor>  
+	</FacialAnimation.EyeballColorDef>
+
+	<FacialAnimation.EyeballColorDef>
+		<defName>WNDE_Byakugan_EyeColor</defName>
+		<hediffDef>WNDE_Hediff_Byakugan</hediffDef>
+		<eyeballColor>RGB(1.0, 1.0, 1.0)</eyeballColor>
+	</FacialAnimation.EyeballColorDef>
+
+</Defs>
