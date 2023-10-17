@@ -110,12 +110,7 @@
 		<activeHediffDef>WNDE_Hediff_ActiveByakugan</activeHediffDef>
 		
 		<stageAbilityTrees>
-			<li>
-				<key>0</key>
-				<value>
-					<li>WN_ClanByakugan</li>
-				</value>
-			</li>
+			<li><key>0</key><value><li>WN_ClanByakugan</li></value></li>
 		</stageAbilityTrees>
 		
 		<stageAbilities>

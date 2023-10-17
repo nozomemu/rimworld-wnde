@@ -76,6 +76,7 @@
     <Compile Include="WNDE.Dojutsu.Thing.cs" />
     <Compile Include="WNDE.Dojutsu.Utils.cs" />
     <Compile Include="WNDE.Dojutsu.Sharingan.cs" />
+    <Compile Include="WNDE.HarmonyPatches.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -119,36 +119,4 @@ namespace WNDE.Dojutsu
     //        return hediffSharingan.DojutsuData.DojutsuActive;
     //    }
     //}
-
-    // Small personal fix: Replaces the DevMode condition in CompAbilities for debug gizmos to be GodMode instead, to be consistent with vanilla
-    [HarmonyPatch]
-    public static class WNDE_CompGetGizmosExtra_Patch
-    {
-        public static MethodBase TargetMethod()
-        {
-            Type nestedType = typeof(CompAbilities).GetNestedTypes(AccessTools.all).First((Type c) => c.Name.Contains("d__21"));
-            MethodInfo methodInfo = AccessTools.Method(nestedType, "MoveNext");
-            return methodInfo;
-        }
-
-        static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator il)
-        {
-            List<CodeInstruction> code = new List<CodeInstruction>(instructions);
-
-            for (int i = 0; i < code.Count; i++)
-            {
-                if (code[i].opcode == OpCodes.Call && code[i].operand == AccessTools.Method(typeof(Prefs), "get_DevMode"))
-                {
-                    code[i].opcode = OpCodes.Ldsfld;
-                    code[i].operand = AccessTools.Field(typeof(DebugSettings), "godMode");
-                    yield return code[i];
-                }
-                else
-                {
-                    yield return code[i];
-                }
-            }
-            yield break;
-        }
-    }
 }

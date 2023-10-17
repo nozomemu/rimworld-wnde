@@ -154,7 +154,7 @@
 		<addsHediff>WNDE_Hediff_Sharingan</addsHediff>
 	</RecipeDef>
 	
-	<!--==========Sharingan==========-->
+	<!--==========Byakugan==========-->
 	<!--Main Hediff-->
 	<HediffDef ParentName="WNDE_Hediff_Dojutsu">
 		<defName>WNDE_Hediff_Byakugan</defName>
